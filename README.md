@@ -35,58 +35,143 @@
 }
 ```
 
-- 🔭 Competing with **M4SEC** — Morocco's #1 CTF team
-- 🧬 Reversing malware & analyzing binary exploits
-- 🌐 Hunting bugs across web, mobile & network targets
-- 📫 Reach me: **0xC1ph3rX** on GitHub / CTFtime
-
 ---
 
-## 🧊 3D Matrix Cube
+## 💻 Terminal Session
 
-<p align="center">
-  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" width="400" height="300">
+<div align="center">
+  <svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:760px;height:auto;border-radius:8px;">
     <defs>
-      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#00FF41;stop-opacity:0.3" />
-        <stop offset="100%" style="stop-color:#003311;stop-opacity:0.1" />
-      </linearGradient>
-      <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#00FF41;stop-opacity:0.2" />
-        <stop offset="100%" style="stop-color:#001a0a;stop-opacity:0.05" />
-      </linearGradient>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <filter id="terminalGlow">
+        <feGaussianBlur stdDeviation="2" result="blur"/>
         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
+      <linearGradient id="titleBar" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#1a1a2e"/>
+        <stop offset="100%" style="stop-color:#16213e"/>
+      </linearGradient>
     </defs>
-    <g>
-      <animateTransform attributeName="transform" type="rotate" from="0 200 150" to="360 200 150" dur="20s" repeatCount="indefinite" />
-      <polygon points="200,75 300,110 300,210 200,240" fill="url(#g1)" stroke="#00FF41" stroke-width="1.5" filter="url(#glow)">
-        <animate attributeName="stroke-width" values="1.5;3;1.5" dur="3s" repeatCount="indefinite" />
-      </polygon>
-      <polygon points="300,110 350,85 350,185 300,210" fill="url(#g2)" stroke="#00CC33" stroke-width="1" />
-      <polygon points="200,75 250,50 350,85 300,110" fill="url(#g1)" stroke="#00FF41" stroke-width="1" opacity="0.6" />
-      <polygon points="250,50 300,20 300,120 350,85" fill="url(#g2)" stroke="#009922" stroke-width="0.5" opacity="0.3" />
-      <polygon points="200,75 250,50 300,20 250,45" fill="none" stroke="#009922" stroke-width="0.5" opacity="0.2" />
-      <circle cx="200" cy="75" r="2" fill="#00FF41" opacity="0.8">
-        <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="300" cy="110" r="1.5" fill="#00FF41" opacity="0.6">
-        <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="350" cy="85" r="2" fill="#00FF41" opacity="0.7">
-        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.8s" repeatCount="indefinite" />
-      </circle>
-    </g>
-    <ellipse cx="200" cy="150" rx="160" ry="40" fill="none" stroke="#00FF41" stroke-width="0.8" opacity="0.15">
-      <animateTransform attributeName="transform" type="rotate" from="0 200 150" to="360 200 150" dur="12s" repeatCount="indefinite" />
-    </ellipse>
-    <ellipse cx="200" cy="150" rx="160" ry="40" fill="none" stroke="#00FF41" stroke-width="0.5" opacity="0.1">
-      <animateTransform attributeName="transform" type="rotate" from="90 200 150" to="450 200 150" dur="12s" repeatCount="indefinite" />
-    </ellipse>
+
+    <!-- Terminal shadow -->
+    <rect x="5" y="5" width="750" height="390" rx="8" fill="#000000" opacity="0.5"/>
+    
+    <!-- Terminal body -->
+    <rect x="0" y="0" width="750" height="390" rx="8" fill="#0a0a0a" stroke="#00FF41" stroke-width="1" filter="url(#terminalGlow)"/>
+
+    <!-- Title bar -->
+    <rect x="0" y="0" width="750" height="32" rx="8" fill="url(#titleBar)"/>
+    <rect x="0" y="24" width="750" height="8" fill="url(#titleBar)"/>
+
+    <!-- Window buttons -->
+    <circle cx="18" cy="16" r="5" fill="#FF5F56"/>
+    <circle cx="38" cy="16" r="5" fill="#FFBD2E"/>
+    <circle cx="58" cy="16" r="5" fill="#27C93F"/>
+
+    <!-- Title text -->
+    <text x="375" y="21" fill="#8a8a8a" font-family="monospace" font-size="12" text-anchor="middle">0xC1ph3rX@M4SEC:~/terminal</text>
+
+    <!-- Terminal output - line by line with staggered animation -->
+    
+    <!-- Line 1: hostname -->
+    <text x="20" y="60" fill="#00FF41" font-family="monospace" font-size="14" font-weight="bold">
+      0xC1ph3rX@M4SEC:~$
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1s" fill="freeze"/>
+    </text>
+    <text x="225" y="60" fill="#FFFFFF" font-family="monospace" font-size="14">
+      whoami
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.8s" fill="freeze"/>
+    </text>
+
+    <!-- Line 2: output -->
+    <text x="20" y="85" fill="#888888" font-family="monospace" font-size="13">
+      0xC1ph3rX — CTF Player @ M4SEC | Bug Bounty Hunter | Malware Analyst
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.4s" fill="freeze"/>
+    </text>
+
+    <!-- Line 3 -->
+    <text x="20" y="115" fill="#00FF41" font-family="monospace" font-size="14" font-weight="bold">
+      0xC1ph3rX@M4SEC:~$
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="3.2s" fill="freeze"/>
+    </text>
+    <text x="225" y="115" fill="#FFFFFF" font-family="monospace" font-size="14">
+      cat /etc/ctf-status
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="4.0s" fill="freeze"/>
+    </text>
+
+    <!-- Line 4 -->
+    <text x="20" y="140" fill="#888888" font-family="monospace" font-size="13">
+      ▸ Team: M4SEC — Morocco #1 on CTFtime
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="4.6s" fill="freeze"/>
+    </text>
+    <text x="20" y="158" fill="#888888" font-family="monospace" font-size="13">
+      ▸ Rank: National 🥇 | Global: Top-tier
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="5.2s" fill="freeze"/>
+    </text>
+
+    <!-- Line 5 -->
+    <text x="20" y="188" fill="#00FF41" font-family="monospace" font-size="14" font-weight="bold">
+      root@C1PH3R:~#
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="6.0s" fill="freeze"/>
+    </text>
+    <text x="185" y="188" fill="#FFFFFF" font-family="monospace" font-size="14">
+      nmap -sV 10.0.0.1
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="6.8s" fill="freeze"/>
+    </text>
+
+    <!-- Line 6 -->
+    <text x="20" y="213" fill="#888888" font-family="monospace" font-size="13">
+      PORT     STATE    SERVICE    VERSION
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="7.4s" fill="freeze"/>
+    </text>
+    <text x="20" y="231" fill="#888888" font-family="monospace" font-size="13">
+      22/tcp   open     ssh        OpenSSH 8.9p1
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="7.8s" fill="freeze"/>
+    </text>
+    <text x="20" y="249" fill="#888888" font-family="monospace" font-size="13">
+      80/tcp   open     http       Apache 2.4.57
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="8.2s" fill="freeze"/>
+    </text>
+    <text x="20" y="267" fill="#00FF41" font-family="monospace" font-size="13">
+      443/tcp  open     https      Apache 2.4.57
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="8.6s" fill="freeze"/>
+    </text>
+
+    <!-- Line 7 -->
+    <text x="20" y="297" fill="#00FF41" font-family="monospace" font-size="14" font-weight="bold">
+      root@C1PH3R:~#
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="9.4s" fill="freeze"/>
+    </text>
+    <text x="185" y="297" fill="#FFFFFF" font-family="monospace" font-size="14">
+      ./reverse-shell.sh --target 10.0.0.1:80
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="10.2s" fill="freeze"/>
+    </text>
+
+    <!-- Line 8 -->
+    <text x="20" y="322" fill="#00FF41" font-family="monospace" font-size="13">
+      [+] Target acquired. Payload delivered.
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="10.8s" fill="freeze"/>
+    </text>
+    <text x="20" y="340" fill="#00FF41" font-family="monospace" font-size="13">
+      [+] Reverse shell established on port 4444
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="11.4s" fill="freeze"/>
+    </text>
+
+    <!-- Line 9 -->
+    <text x="20" y="370" fill="#FF4444" font-family="monospace" font-size="14" font-weight="bold">
+      victim@target:~#
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="12.2s" fill="freeze"/>
+    </text>
+    <text x="185" y="370" fill="#FFFFFF" font-family="monospace" font-size="14">
+      systemctl status — pwned
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="13.0s" fill="freeze"/>
+    </text>
+
+    <!-- Blinking cursor -->
+    <rect x="400" y="356" width="9" height="16" fill="#00FF41">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" begin="13.5s"/>
+    </rect>
   </svg>
-</p>
+</div>
 
 ---
 
@@ -154,27 +239,9 @@
 
 ---
 
-## 🌐 Connect
-
-<p align="center">
-  <a href="https://github.com/0xC1ph3rX"><img src="https://img.shields.io/badge/GitHub-0xC1ph3rX-00FF41?style=for-the-badge&logo=github&labelColor=0d1117" /></a>
-  <a href="https://hackerone.com/mr_booot"><img src="https://img.shields.io/badge/HackerOne-mr__booot-00FF41?style=for-the-badge&logo=hackerone&labelColor=0d1117" /></a>
-  <a href="https://app.intigriti.com/profile/0xc1ph3rx"><img src="https://img.shields.io/badge/Intigriti-0xc1ph3rx-00FF41?style=for-the-badge&logo=intigriti&labelColor=0d1117" /></a>
-  <a href="https://ctftime.org/team/368396"><img src="https://img.shields.io/badge/CTFtime-M4SEC-00FF41?style=for-the-badge&logo=hackthebox&labelColor=0d1117" /></a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/OPEN%20FOR-CTF%20COLLABORATIONS-00FF41?style=for-the-badge&labelColor=0d1117" />
-  <img src="https://img.shields.io/badge/ROOT-REVERSE.%20EXPLOIT.%20DOMINATE.-00FF41?style=for-the-badge&labelColor=0d1117" />
-</p>
-
----
-
 ## 💰 Bug Bounty
 
 Actively hunting vulnerabilities across web, mobile, and network targets. Focus on high-impact findings — IDOR, SSRF, RCE, logic flaws, and auth bypasses.
-
-### 🎯 Platforms
 
 <p align="center">
   <a href="https://hackerone.com/mr_booot"><img src="https://img.shields.io/badge/HackerOne-mr__booot-00FF41?style=for-the-badge&logo=hackerone&logoColor=white&labelColor=0d1117" /></a>
@@ -182,8 +249,6 @@ Actively hunting vulnerabilities across web, mobile, and network targets. Focus 
   <a href="https://bugcrowd.com"><img src="https://img.shields.io/badge/Bugcrowd-Profile-00FF41?style=for-the-badge&logo=bugcrowd&logoColor=white&labelColor=0d1117" /></a>
   <img src="https://img.shields.io/badge/Private%20Programs-Active-FF4444?style=for-the-badge&logo=target&logoColor=white&labelColor=0d1117" />
 </p>
-
-### 🔍 Focus Areas
 
 ```
 XSS  ████████████████████░  95%
@@ -195,6 +260,23 @@ Auth ████████████████████░  92%
 ```
 
 ---
+
+## 🌐 Connect
+
+<p align="center">
+  <a href="https://github.com/0xC1ph3rX"><img src="https://img.shields.io/badge/GitHub-0xC1ph3rX-00FF41?style=for-the-badge&logo=github&labelColor=0d1117" /></a>
+  <a href="https://hackerone.com/mr_booot"><img src="https://img.shields.io/badge/HackerOne-mr__booot-00FF41?style=for-the-badge&logo=hackerone&labelColor=0d1117" /></a>
+  <a href="https://app.intigriti.com/profile/0xc1ph3rx"><img src="https://img.shields.io/badge/Intigriti-0xc1ph3rx-00FF41?style=for-the-badge&logo=intigriti&labelColor=0d1117" /></a>
+  <a href="https://ctftime.org/team/368396"><img src="https://img.shields.io/badge/CTFtime-M4SEC-00FF41?style=for-the-badge&logo=hackthebox&labelColor=0d1117" /></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/ROOT-REVERSE.+EXPLOIT.+DOMINATE.-FF4444?style=for-the-badge&labelColor=0d1117" />
+</p>
+
+<p align="center">
+  <sub><code>root@C1PH3R:~# hack the planet</code></sub>
+</p>
 
 <div align="center">
   <picture>
