@@ -14,12 +14,103 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: Platane/snk@v3
-        id: snake
+      - uses: actions/setup-python@v5
         with:
-          github_user_name: 0xC1ph3rX
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          outputs: snake.svg?color_snake=#00FF41&color_dots=#0a0a0a,#001a00,#003300,#006600,#00FF41
+          python-version: '3.x'
+      - name: Generate snake SVG
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -c "
+import json, urllib.request, sys
+
+token = '${{ secrets.GITHUB_TOKEN }}'
+user = '0xC1ph3rX'
+
+# Fetch contribution graph via GraphQL
+query = '''
+{
+  user(login: \"''' + user + '''\") {
+    contributionsCollection {
+      contributionCalendar {
+        weeks {
+          contributionDays {
+            date
+            contributionCount
+          }
+        }
+      }
+    }
+  }
+}
+'''
+req = urllib.request.Request(
+    'https://api.github.com/graphql',
+    data=json.dumps({'query': query}).encode(),
+    headers={'Authorization': 'bearer ' + token, 'Content-Type': 'application/json'}
+)
+resp = urllib.request.urlopen(req)
+data = json.loads(resp.read())
+days = []
+for week in data['data']['user']['contributionsCollection']['contributionCalendar']['weeks']:
+    for day in week['contributionDays']:
+        days.append(day)
+
+# Build SVG
+max_count = max(d['contributionCount'] for d in days) if days else 1
+cols = 53
+rows = 7
+cell = 12
+gap = 2
+pad = 15
+w = cols * (cell + gap) + pad * 2
+h = rows * (cell + gap) + pad * 2 + 80
+
+colors = ['#0a0a0a','#001a00','#003300','#006600','#00FF41']
+
+svg = '<svg viewBox=\"0 0 %d %d\" xmlns=\"http://www.w3.org/2000/svg\">' % (w, h)
+svg += '<rect width=\"%d\" height=\"%d\" fill=\"#0a0a0a\" rx=\"6\"/>' % (w, h)
+
+# Draw contribution grid
+for i, d in enumerate(days):
+    c = i % cols
+    r = (i // cols) % rows
+    x = pad + c * (cell + gap)
+    y = pad + r * (cell + gap)
+    level = 0
+    if max_count > 0:
+        level = min(int(d['contributionCount'] / max_count * 4), 4)
+    svg += '<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"%s\" rx=\"2\"/>' % (x, y, cell, cell, colors[level])
+
+# Draw snake body
+import math
+snake_x = pad
+snake_y = pad + rows * (cell + gap) + 20
+segments = 50
+for i in range(segments):
+    t = i / segments
+    sx = snake_x + t * (w - pad * 2)
+    sy = snake_y + math.sin(t * math.pi * 4) * 12
+    r = 4 + 3 * math.sin(t * math.pi * 2)
+    svg += '<circle cx=\"%.1f\" cy=\"%.1f\" r=\"%.1f\" fill=\"#00FF41\" opacity=\"%.2f\"/>' % (sx, sy, r, 0.3 + 0.7 * (1 - t))
+
+# Draw snake head
+hx = snake_x + (w - pad * 2)
+hy = snake_y
+svg += '<circle cx=\"%.1f\" cy=\"%.1f\" r=\"8\" fill=\"#00FF41\"/>' % (hx, hy)
+svg += '<circle cx=\"%.1f\" cy=\"%.1f\" r=\"12\" fill=\"none\" stroke=\"#00FF41\" stroke-width=\"2\" opacity=\"0.5\"/>' % (hx, hy)
+
+# Draw snake eyes
+svg += '<circle cx=\"%.1f\" cy=\"%.1f\" r=\"2\" fill=\"#0a0a0a\"/>' % (hx - 3, hy - 3)
+svg += '<circle cx=\"%.1f\" cy=\"%.1f\" r=\"2\" fill=\"#0a0a0a\"/>' % (hx + 3, hy - 3)
+
+svg += '<text x=\"%d\" y=\"%d\" fill=\"#00FF41\" font-family=\"monospace\" font-size=\"14\" text-anchor=\"middle\">CONTRIBUTIONS DEVOURED: %d</text>' % (w/2, h - 15, sum(d['contributionCount'] for d in days))
+svg += '</svg>'
+
+with open('snake.svg', 'w') as f:
+    f.write(svg)
+print('snake.svg generated')
+"
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update snake.svg"
