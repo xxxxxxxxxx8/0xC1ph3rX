@@ -14,11 +14,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: Platane/snk@v2
+      - uses: Platane/snk@v3
         id: snake
         with:
           github_user_name: 0xC1ph3rX
-          svg_out_path: snake.svg
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          outputs: snake.svg?color_snake=#00FF41&color_dots=#0a0a0a,#001a00,#003300,#006600,#00FF41
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update snake.svg"
