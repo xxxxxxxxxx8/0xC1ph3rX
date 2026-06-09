@@ -1,0 +1,26 @@
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:600px;height:auto;">
+  <rect width="600" height="300" fill="#0a0a0a" rx="6"/>
+  <g>
+    <text x="300" y="120" fill="#FF0000" font-family="monospace" font-size="60" font-weight="bold" text-anchor="middle">
+      ERROR
+      <animate attributeName="opacity" values="1;0.2;1;0.8;1;0;1" dur="2s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <g>
+    <text x="300" y="120" fill="#FF4444" font-family="monospace" font-size="60" font-weight="bold" text-anchor="middle" opacity="0.5">
+      ERROR
+      <animateTransform attributeName="transform" type="translate" values="2,0;-2,0;2,0" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.5;0" dur="0.3s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <text x="300" y="170" fill="#888888" font-family="monospace" font-size="14" text-anchor="middle">
+    SYSTEM FAILURE — REBOOT REQUIRED
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
+  </text>
+  <text x="300" y="200" fill="#555555" font-family="monospace" font-size="11" text-anchor="middle">
+    root@C1PH3R:~#
+  </text>
+  <rect x="385" y="188" width="8" height="14" fill="#00FF41">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+</svg>
