@@ -14,12 +14,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: Platane/snk@v3.5.0
-        with:
-          github_user_name: 0xC1ph3rX
-          github_token: ${{ github.token }}
-          outputs: |
-            snake.svg?color_snake=#00FF41&color_dots=#0a0a0a,#001a00,#003300,#006600,#00FF41
+      - run: |
+          npm install -g @platane/snk
+          npx --yes @platane/snk --user 0xC1ph3rX --output snake.svg --color "#00FF41"
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: update snake.svg"
