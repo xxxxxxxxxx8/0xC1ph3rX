@@ -158,7 +158,8 @@
 
 <p align="center">
   <a href="https://github.com/0xC1ph3rX"><img src="https://img.shields.io/badge/GitHub-0xC1ph3rX-00FF41?style=for-the-badge&logo=github&labelColor=0d1117" /></a>
-  <a href="https://www.linkedin.com/in/0xc1ph3r"><img src="https://img.shields.io/badge/LinkedIn-0xC1ph3r-00FF41?style=for-the-badge&logo=linkedin&labelColor=0d1117" /></a>
+  <a href="https://hackerone.com/mr_booot"><img src="https://img.shields.io/badge/HackerOne-mr__booot-00FF41?style=for-the-badge&logo=hackerone&labelColor=0d1117" /></a>
+  <a href="https://app.intigriti.com/profile/0xc1ph3rx"><img src="https://img.shields.io/badge/Intigriti-0xc1ph3rx-00FF41?style=for-the-badge&logo=intigriti&labelColor=0d1117" /></a>
   <a href="https://ctftime.org/team/368396"><img src="https://img.shields.io/badge/CTFtime-M4SEC-00FF41?style=for-the-badge&logo=hackthebox&labelColor=0d1117" /></a>
 </p>
 
@@ -176,9 +177,9 @@ Actively hunting vulnerabilities across web, mobile, and network targets. Focus 
 ### 🎯 Platforms
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HackerOne-Active-00FF41?style=for-the-badge&logo=hackerone&logoColor=white&labelColor=0d1117" />
-  <img src="https://img.shields.io/badge/Bugcrowd-Active-00FF41?style=for-the-badge&logo=bugcrowd&logoColor=white&labelColor=0d1117" />
-  <img src="https://img.shields.io/badge/Intigriti-Active-00FF41?style=for-the-badge&logo=intigriti&logoColor=white&labelColor=0d1117" />
+  <a href="https://hackerone.com/mr_booot"><img src="https://img.shields.io/badge/HackerOne-mr__booot-00FF41?style=for-the-badge&logo=hackerone&logoColor=white&labelColor=0d1117" /></a>
+  <a href="https://app.intigriti.com/profile/0xc1ph3rx"><img src="https://img.shields.io/badge/Intigriti-0xc1ph3rx-00FF41?style=for-the-badge&logo=intigriti&logoColor=white&labelColor=0d1117" /></a>
+  <a href="https://bugcrowd.com"><img src="https://img.shields.io/badge/Bugcrowd-Profile-00FF41?style=for-the-badge&logo=bugcrowd&logoColor=white&labelColor=0d1117" /></a>
   <img src="https://img.shields.io/badge/Private%20Programs-Active-FF4444?style=for-the-badge&logo=target&logoColor=white&labelColor=0d1117" />
 </p>
 
